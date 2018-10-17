@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@color/big_decimal_bg_color">
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="操作数1："/>
+
+    <EditText
+            android:id="@+id/et_big_num1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:digits="0123456789.-+E"
+            android:inputType="number"
+            android:hint="0"
+            android:gravity="top"/>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.2"
+                  android:layout_margin="10dp"
+                  android:orientation="horizontal">
+
+        <TextView android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:text="运算符："/>
+
+        <Button
+                android:id="@+id/btn_add"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="＋"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        <Button
+                android:id="@+id/btn_sub"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="－"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        <Button
+                android:id="@+id/btn_mul"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="×"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        <Button
+                android:id="@+id/btn_div"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="÷"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="操作数2："/>
+
+    <EditText
+            android:id="@+id/et_big_num2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:digits="0123456789.-+E"
+            android:inputType="number"
+            android:hint="0"
+            android:gravity="top"/>
+
+</LinearLayout>

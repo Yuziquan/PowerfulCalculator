@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">强力计算器</string>
+    <string name="app_about">关于App</string>
+    <string name="input_num_character">1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM</string>
+</resources>

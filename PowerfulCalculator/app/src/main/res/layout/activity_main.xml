@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:background="@color/colorPrimary">
+
+    <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+        <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimaryDark"/>
+
+        <EditText
+                android:id="@+id/et_expression_input"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.7"
+                android:background="@null"
+                android:gravity="bottom|end"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/expression_input_default_text_color"
+                android:textSize="65sp"/>
+
+        <View android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:background="@android:color/holo_blue_light"/>
+
+        <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.3"
+                android:layout_gravity="bottom"
+                android:background="@color/result_text_bg_color">
+
+            <TextView
+                    android:id="@+id/tv_expression_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:textColor="@color/result_text_color"
+                    android:textSize="35sp"/>
+
+        </HorizontalScrollView>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.DrawerLayout
+            android:id="@+id/drawer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.618">
+
+        <include layout="@layout/content_main"/>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_gravity="end"
+                      android:orientation="vertical"
+                      android:background="@color/tab_page_color">
+
+            <android.support.design.widget.TabLayout
+                    android:id="@+id/tab_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/tab_header_color"
+                    app:tabIndicatorHeight="4dp"
+                    app:tabSelectedTextColor="@color/tab_selected_text_color"
+                    app:tabIndicatorColor="@color/tab_indicator_color"
+                    app:tabTextAppearance="@android:style/TextAppearance.Large"/>
+
+            <android.support.v4.view.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+            </android.support.v4.view.ViewPager>
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.DrawerLayout>
+
+
+</LinearLayout>

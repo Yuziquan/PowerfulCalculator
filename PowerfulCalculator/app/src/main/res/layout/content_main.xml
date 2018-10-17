@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent" android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+    <LinearLayout android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="0.7"
+                  android:orientation="vertical"
+                  android:background="@color/main_menu1_color">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="0.2"
+                      android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_clear_all"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="C"
+                    android:textSize="20sp"
+                    android:textColor="@color/special_text_color1"
+                    android:gravity="center"/>
+
+            <TextView
+                    android:id="@+id/tv_delete"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="DEL"
+                    android:textSize="20sp"
+                    android:textColor="@color/special_text_color1"
+                    android:gravity="center"/>
+
+            <TextView
+                    android:id="@+id/tv_copy"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="Copy"
+                    android:textSize="20sp"
+                    android:textColor="@color/special_text_color1"
+                    android:gravity="center"/>
+
+        </LinearLayout>
+
+        <GridView
+                android:id="@+id/grid_view_numeric_menu"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.9"
+                android:gravity="center">
+
+        </GridView>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="0.3"
+                  android:orientation="vertical"
+                  android:background="@color/main_menu2_color">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_add"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="＋"
+                    android:textSize="30sp"
+                    android:textColor="@color/special_text_color2"/>
+
+            <TextView
+                    android:id="@+id/tv_sub"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="－"
+                    android:textSize="30sp"
+                    android:textColor="@color/special_text_color2"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_mul"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text="×"
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+            <TextView
+                    android:id="@+id/tv_div"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text="÷"
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_percent"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text="%"
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+            <TextView
+                    android:id="@+id/tv_power"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text="^"
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_degree"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text="°"
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+            <TextView
+                    android:id="@+id/tv_factorial"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text="!"
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_square_root"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text="√"
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+            <TextView
+                    android:id="@+id/tv_infinity"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text="∞"
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_imaginary_num_unit"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text="i"
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+            <TextView
+                    android:id="@+id/tv_double_brace"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text="()"
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_comma"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text=","
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+            <TextView
+                    android:id="@+id/tv_x_parameter"
+                    android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:clickable="true"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:text="x"
+                      android:textSize="30sp"
+                      android:textColor="@color/special_text_color2"/>
+
+        </LinearLayout>
+
+        <com.nightonke.boommenu.BoomMenuButton
+                android:id="@+id/bmb_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="10dp"
+                app:bmb_normalColor="@color/bmb_color"
+                app:bmb_buttonEnum="textOutsideCircle"
+                app:bmb_piecePlaceEnum="piecePlace_dot_7_3"
+                app:bmb_buttonPlaceEnum="buttonPlace_sc_7_3"
+        />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+            android:id="@+id/iv_drawer_left_arrow"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.06"
+            android:clickable="true"
+            android:elevation="6dp"
+            android:background="@color/tab_page_color"
+            android:src="@drawable/left_arrow"/>
+
+</LinearLayout>

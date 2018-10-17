@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#212121</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="tab_page_color">#bdbdbd</color>
+    <color name="tab_header_color">#999999</color>
+    <color name="main_menu1_color">#424242</color>
+    <color name="main_menu2_color">#757575</color>
+    <color name="side_bar_color">#bdbdbd</color>
+    <color name="normal_text_color">#FFFFFF</color>
+    <color name="special_text_color1">#FF3F00</color>
+    <color name="special_text_color2">#00FFFF</color>
+    <color name="start_color">#7FFF00</color>
+    <color name="end_color">#004FFF</color>
+    <color name="transparent_color">#00000000</color>
+    <color name="bmb_color">#23238E</color>
+    <color name="capital_decimal_bg_color">#999999</color>
+    <color name="radix_conversion_bg_color">#999999</color>
+    <color name="help_and_about_bg_color">#999999</color>
+    <color name="big_decimal_bg_color">#999999</color>
+    <color name="big_decimal_result_bg_color">#999999</color>
+    <color name="expression_input_default_text_color">#FFFFFF</color>
+    <color name="result_text_color">#FF7F00</color>
+    <color name="result_text_bg_color">#888888</color>
+    <color name="tab_selected_text_color">#007FFF</color>
+    <color name="tab_indicator_color">#32CD32</color>
+
+
+</resources>
