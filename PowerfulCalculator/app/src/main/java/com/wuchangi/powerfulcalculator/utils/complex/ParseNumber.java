@@ -9,12 +9,12 @@ package com.wuchangi.powerfulcalculator.utils.complex;
 public class ParseNumber
 {
 
-    private static final String baseSymbol = "₀₁₂₃₄₅₆₇₈₉₉₉ₑₑₑₑₓ";
+    private static final String baseSymbol = "  ⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃";
 
     // is this character a base notation?
     public static boolean isBaseSymbol(char c)
     {
-        return baseSymbol.indexOf(c) >= 0;
+        return baseSymbol.indexOf(c) != -1;
     }
 
     // get a number digit from char under certain base
@@ -68,6 +68,23 @@ public class ParseNumber
         return frac;
     }
 
+    public static double parseCompat(String s) throws NumberFormatException
+    {
+        int baseDivSymbolPos = s.indexOf('~');
+        if (baseDivSymbolPos <= 0 || baseDivSymbolPos >= s.length() - 1)
+        {
+            throw new NumberFormatException();
+        }
+
+        int base = Integer.parseInt(s.substring(baseDivSymbolPos + 1));
+        if (!(base >= 2 && base <= 10 || base == 12 || base == 16)) // base not supported
+        {
+            throw new NumberFormatException();
+        }
+
+        return parseRaw(s.substring(0, baseDivSymbolPos), base);
+    }
+
     // parse a float number presentation under certain base
     public static double parse(String s) throws NumberFormatException
     {
@@ -105,23 +122,6 @@ public class ParseNumber
         double frac = parseRaw(s.substring(0, baseSymbolPos), base);
 
         return frac * Math.pow(base, exp);
-    }
-
-    public static double parseCompat(String s) throws NumberFormatException
-    {
-        int baseDivSymbolPos = s.indexOf('~');
-        if (baseDivSymbolPos <= 0 || baseDivSymbolPos >= s.length() - 1)
-        {
-            throw new NumberFormatException();
-        }
-
-        int base = Integer.parseInt(s.substring(baseDivSymbolPos + 1));
-        if (!(base >= 2 && base <= 10 || base == 12 || base == 16)) // base not supported
-        {
-            throw new NumberFormatException();
-        }
-
-        return parseRaw(s.substring(0, baseDivSymbolPos), base);
     }
 
     // without scientific display mode
@@ -206,11 +206,11 @@ public class ParseNumber
         }
         if (d_ == Double.POSITIVE_INFINITY)
         {
-            return "inf";
+            return "∞";
         }
         if (d_ == Double.NEGATIVE_INFINITY)
         {
-            return "-inf";
+            return "-∞";
         }
 
         String negativeSymbol = (d_ >= 0 ? "" : "-");
@@ -218,15 +218,9 @@ public class ParseNumber
         double maxPreciseValue = Math.pow(base, prec);
         double minPreciseValue = Math.pow(base, -prec);
 
-        String result;
-
         if (d < maxPreciseValue && d > minPreciseValue)
         { // able to express under fixed precision
-            result = negativeSymbol + toPositiveRawBaseString(d, base, prec);
-            if (base != 10)
-            {
-                result += baseSymbol.charAt(base);
-            }
+            return negativeSymbol + toPositiveRawBaseString(d, base, prec) + (base == 10 ? "" : baseSymbol.charAt(base));
         }
         else
         { // need scientific notation
@@ -243,23 +237,10 @@ public class ParseNumber
                 fracPart *= base;
             }
 
-            if (base == 10)
-            {
-                result = negativeSymbol + toPositiveRawBaseString(fracPart, base, prec);
-                result += "E";
-            }
-            else
-            {
-                result = negativeSymbol + toPositiveRawBaseString(fracPart, base, prec);
-                result += baseSymbol.charAt(base);
-            }
-
-            result += digitExp;
+            String res = toPositiveRawBaseString(fracPart, base, prec) + (base == 10 ? "E" : baseSymbol.charAt(base));
+            res += digitExp;
+            return negativeSymbol + res;
         }
-        return result;
     }
 
-    public static final String[] baseName = new String[]{
-            "---", "---", "Binary", "Ternary", "Quaternary", "Quinary", "Senary", "Septenary", "Octal", "Nonary", "Decimal", "Undecimal", "Duodecimal", "Tridecimal", "Tetradecimal", "Pentadecimal", "Hexadecimal"
-    };
 }

@@ -30,6 +30,8 @@
         </activity>
         <activity android:name=".activities.AboutActivity">
         </activity>
+        <activity android:name=".activities.GodModeActivity">
+        </activity>
     </application>
 
 </manifest>

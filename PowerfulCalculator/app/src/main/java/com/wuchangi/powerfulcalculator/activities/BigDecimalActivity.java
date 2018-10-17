@@ -51,6 +51,7 @@ public class BigDecimalActivity extends BaseActivity
         if(actionBar != null)
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("大数计算");
         }
 
         ButterKnife.bind(this);

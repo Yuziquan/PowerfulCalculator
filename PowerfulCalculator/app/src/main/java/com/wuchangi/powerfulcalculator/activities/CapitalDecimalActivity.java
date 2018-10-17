@@ -42,6 +42,7 @@ public class CapitalDecimalActivity extends BaseActivity
         if(actionBar != null)
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("数字大写转换(财务管理)");
         }
 
         ButterKnife.bind(this);

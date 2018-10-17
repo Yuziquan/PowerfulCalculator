@@ -10,10 +10,6 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-        <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimaryDark"/>
 
         <EditText
                 android:id="@+id/et_expression_input"
@@ -24,16 +20,12 @@
                 android:gravity="bottom|end"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/expression_input_default_text_color"
-                android:textSize="65sp"/>
-
-        <View android:layout_width="match_parent"
-              android:layout_height="1dp"
-              android:background="@android:color/holo_blue_light"/>
+                android:textSize="70sp"/>
 
         <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.2"
                 android:layout_gravity="bottom"
                 android:background="@color/result_text_bg_color">
 
@@ -43,7 +35,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:textColor="@color/result_text_color"
-                    android:textSize="35sp"/>
+                    android:textSize="40sp"/>
 
         </HorizontalScrollView>
 

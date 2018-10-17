@@ -29,6 +29,7 @@ public class BigDecimalResultActivity extends BaseActivity
         if(actionBar != null)
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("运算结果");
         }
 
         ButterKnife.bind(this);

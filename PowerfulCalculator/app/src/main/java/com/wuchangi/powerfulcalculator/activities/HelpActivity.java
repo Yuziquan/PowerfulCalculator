@@ -23,6 +23,7 @@ public class HelpActivity extends BaseActivity
         if(actionBar != null)
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("帮助");
         }
     }
 

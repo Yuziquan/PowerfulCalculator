@@ -24,6 +24,7 @@ public class AboutActivity extends BaseActivity
         if(actionBar != null)
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("关于");
         }
     }
 

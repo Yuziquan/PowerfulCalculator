@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@color/colorPrimary">
+
+    <EditText
+            android:id="@+id/et_god_mode_expression_input"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:background="@null"
+            android:gravity="bottom|end"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/expression_input_default_text_color"
+            android:textSize="70sp"/>
+
+    <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_gravity="bottom"
+            android:background="@color/result_text_bg_color">
+
+    <TextView
+            android:id="@+id/tv_god_mode_expression_result"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:textColor="@color/result_text_color"
+            android:textSize="40sp"/>
+
+    </HorizontalScrollView>
+
+</LinearLayout>

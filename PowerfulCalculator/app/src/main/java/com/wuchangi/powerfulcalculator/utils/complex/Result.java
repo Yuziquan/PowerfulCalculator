@@ -9,24 +9,16 @@ package com.wuchangi.powerfulcalculator.utils.complex;
 
 public class Result
 {
-    public Complex val;
-    public int err;
+    public Complex val = new Complex(0);
+    private int err;
     public static int precision = 10;
     public static int base = 10;
     public static int maxPrecision = 15;
-    /* Error No.:
-	 * 0: No Error
-	 * 1: Grammatical Error
-	 * 2: Item Expected Error
-	 * 3: Runtime Error
-	 * -1: Mathematical Error
-	 * <=-2: Special Functions
-	 */
 
     public Result(Complex v)
     {
         val = v;
-        err = 0;
+        err = v.err;
     }
 
     public Result(int err_)
@@ -35,16 +27,16 @@ public class Result
         err = err_;
     }
 
-    public Result append(String name, String text, int l, int r)
-    { // Well, best to be static, but I don't want to fix it
-		/*Message msg=new Message();
-		msg.what=2;
-		Bundle bundle=new Bundle();
-		bundle.putString("info",name+":: "+text);
-		bundle.putInt("start",l);
-		bundle.putInt("end",r);
-		msg.setData(bundle);
-		MainActivity.nowMainActivity.msgFilter.outputHandler.sendMessage(msg);*/
+    public Result setAnswer(String answer)
+    {
+        val.setAnswer(answer);
+        //append(answer);
+        return this;
+    }
+
+    public Result append(String name)
+    {
+        //Temporarily not used
         return this;
     }
 
@@ -55,18 +47,19 @@ public class Result
     }
 
     public static void setBase(int base_)
-    {
+    { // set the radix as base_
         base = base_;
         precision = (int) Math.floor(35 * Math.log(2) / Math.log(base_));
         maxPrecision = (int) Math.floor(52 * Math.log(2) / Math.log(base_));
     }
 
-    boolean isFatalError()
+    public boolean isFatalError()
     {
-        return err > 0;
+        return this.err > 0;
     }
 
-    public int getError() {
+    public int getError()
+    {
         return this.err;
     }
 }

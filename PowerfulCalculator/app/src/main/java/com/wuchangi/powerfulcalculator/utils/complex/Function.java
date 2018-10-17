@@ -5,13 +5,8 @@ package com.wuchangi.powerfulcalculator.utils.complex;
  * Written by Iraka on 20170312
  * Github: https://github.com/Iraka-C/Calci-kernel
  */
-
-
 class Function
 {
-
-    // place a function serial here, interval 10 (accept maximum 10 params.)
-
     static final int EXP = 10;
     static final int LN = 20;
     static final int RE = 30;
@@ -23,9 +18,9 @@ class Function
     static final int SIN = 90;
     static final int COS = 100;
     static final int TAN = 110;
-    static final int ARCSIN = 120;
-    static final int ARCCOS = 130;
-    static final int ARCTAN = 140;
+    static final int ASIN = 120;
+    static final int ACOS = 130;
+    static final int ATAN = 140;
     static final int GAMMA = 150;
     static final int FLOOR = 160;
     static final int CEIL = 170;
@@ -42,7 +37,22 @@ class Function
     static final int PERM = 280;
     static final int COMB = 290;
     static final int PREC = 300;
-    static final int BASE = 320;
+    static final int BASE = 310;
+
+    static final int CBRT = 320;
+    static final int LG = 330;
+    static final int MAX = 340;
+    static final int MIN = 350;
+    static final int FACT = 360;
+    static final int PRIME = 370;
+    static final int ISPRIME = 380;
+    static final int GCD = 390;
+    static final int LCM = 400;
+    static final int LOG = 410;
+    static final int SIGN = 420;
+    static final int RANDINT = 430;
+    static final int REMN = 440;
+    static final int ROOT = 450;
 
     static class Serial
     { // function name - serial struct
@@ -68,7 +78,8 @@ class Function
     // Register name and serial pair
     // Different name may direct to same function
     static final Serial[] funcList = {
-            new Serial("exp", EXP), new Serial("ln", LN), new Serial("re", RE), new Serial("im", IM), new Serial("sqrt", SQRT), new Serial("abs", ABS), new Serial("norm", NORM), new Serial("arg", ARG), new Serial("sin", SIN), new Serial("cos", COS), new Serial("tan", TAN), new Serial("arcsin", ARCSIN), new Serial("arccos", ARCCOS), new Serial("arctan", ARCTAN), new Serial("gamma", GAMMA), new Serial("Γ", GAMMA), // greek alphabet version !
-            new Serial("floor", FLOOR), new Serial("ceil", CEIL), new Serial("reg", REG), new Serial("conj", CONJ), new Serial("rand", RAND), new Serial("round", ROUND), new Serial("diff", DIFF, 1), new Serial("limit", LIMIT, 1), new Serial("eval", EVAL, 1), new Serial("fzero", FZERO, 1), new Serial("integ", INTEG, 1), new Serial("sum", SUM, 1), new Serial("perm", PERM), new Serial("comb", COMB), new Serial("prec", PREC), new Serial("base", BASE)
+            new Serial("exp", EXP), new Serial("ln", LN), new Serial("re", RE), new Serial("im", IM), new Serial("sqrt", SQRT), new Serial("abs", ABS), new Serial("norm", NORM), new Serial("arg", ARG), new Serial("sin", SIN), new Serial("cos", COS), new Serial("tan", TAN), new Serial("asin", ASIN), new Serial("acos", ACOS), new Serial("atan", ATAN), new Serial("gamma", GAMMA), new Serial("Γ", GAMMA), new Serial("floor", FLOOR), new Serial("ceil", CEIL), new Serial("reg", REG), new Serial("conj", CONJ), new Serial("rand", RAND), new Serial("round", ROUND), new Serial("diff", DIFF, 1), new Serial("lim", LIMIT, 1), new Serial("eval", EVAL, 1), new Serial("fzero", FZERO, 1), new Serial("integ", INTEG, 1), new Serial("sum", SUM, 1), new Serial("perm", PERM), new Serial("comb", COMB), new Serial("prec", PREC), new Serial("base", BASE),
+
+            new Serial("cbrt", CBRT), new Serial("lg", LG), new Serial("max", MAX), new Serial("min", MIN), new Serial("fact", FACT), new Serial("prime", PRIME), new Serial("isPrime", ISPRIME), new Serial("gcd", GCD), new Serial("lcm", LCM), new Serial("log", LOG), new Serial("sign", SIGN), new Serial("randInt", RANDINT), new Serial("remn", REMN), new Serial("root", ROOT)
     };
 }

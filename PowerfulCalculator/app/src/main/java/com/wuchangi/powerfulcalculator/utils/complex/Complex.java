@@ -6,6 +6,8 @@ package com.wuchangi.powerfulcalculator.utils.complex;
  * Github: https://github.com/Iraka-C/Calci-kernel
  */
 
+import android.text.TextUtils;
+
 import java.lang.Math;
 
 
@@ -14,10 +16,13 @@ public class Complex
     public static Complex E = new Complex(Math.E);
     public static Complex PI = new Complex(Math.PI);
     public static Complex I = new Complex(0, 1);
-    public static Complex Inf = new Complex(Double.POSITIVE_INFINITY, Double.NaN);
+    public static Complex Inf = new Complex(Double.POSITIVE_INFINITY);
 
+    public int err = 0;
     public double re;
     public double im;
+
+    private String answer = "";
 
     public Complex(double re_, double im_)
     {
@@ -31,10 +36,49 @@ public class Complex
         im = 0;
     }
 
+    public Complex(String answer_)
+    {
+        answer = answer_;
+        try
+        {
+            re = Double.parseDouble(answer);
+        }
+        catch (Exception e)
+        {
+            re = Double.NaN;
+        }
+        im = 0;
+    }
+
+    public Complex(String answer_, Complex c)
+    {
+        answer = answer_;
+        re = c.re;
+        im = c.im;
+    }
+
+    public Complex(boolean b)
+    {
+        re = b ? 1 : 0;
+        im = 0;
+        answer = b ? "true" : "false";
+    }
+
     public Complex()
     {
         re = Double.NaN;
         im = Double.NaN;
+    }
+
+    public Complex error(int err)
+    {
+        this.err = err;
+        return this;
+    }
+
+    public void setAnswer(String str)
+    {
+        this.answer = str;
     }
 
     public static Complex add(Complex a, Complex b)
@@ -57,6 +101,15 @@ public class Complex
         return new Complex(a.re * b.re - a.im * b.im, a.re * b.im + a.im * b.re);
     }
 
+    public Complex abs()
+    {
+        if (im != 0)
+        {
+            return new Complex().error(3);
+        }
+        return new Complex(Math.abs(re));
+    }
+
     public double norm2()
     {
         if (Double.isInfinite(re) || Double.isInfinite(im))
@@ -68,25 +121,6 @@ public class Complex
 
     public Complex norm()
     {
-        /* Old implementation. There's already a hypot function
-
-		// needs repairing: what if 1E200+1E200i ?
-		// use z -> arg(z) -> cos(theta) -> norm instead.
-		if(Double.isInfinite(re)||Double.isInfinite(im))
-			return new Complex(Double.POSITIVE_INFINITY);
-		double absRe=Math.abs(re);
-		double absIm=Math.abs(im);
-		if(absRe>1E150||absIm>1E150||(absRe<1E-150&&absIm<1E-150)){ // Large scales
-			if(absIm>absRe){ // make absRe the bigger to increase precision
-				double temp=absIm;
-				absIm=absRe;
-				absRe=temp;
-			}
-			double arg=Math.atan2(absIm,absRe);
-			double cosArg=Math.cos(arg);
-			return new Complex(absRe/cosArg);
-		}
-		return new Complex(Math.sqrt(re*re+im*im));*/
         return new Complex(Math.hypot(re, im));
     }
 
@@ -181,16 +215,9 @@ public class Complex
         }
         if (Double.isInfinite(d))
         {
-            return d > 0 ? "inf" : "-inf";
+            return d > 0 ? "∞" : "-∞";
         }
 
-		/*if(Result.precision<15){
-            //return Complex.significand(d,Result.precision);
-			return ParseNumber.toBaseString(d,2,Result.precision);
-		}
-		else{
-			return Double.toString(d);
-		}*/
         if (Result.base == 10 && Result.precision == Result.maxPrecision)
         {
             return Double.toString(d);
@@ -200,33 +227,36 @@ public class Complex
     }
 
     public String toString()
-    { // kind of slow !!!
-        String s = "";
+    {
+        if (!TextUtils.isEmpty(answer))
+        {
+            return answer;
+        }
         double threshold = (Result.precision < Result.maxPrecision ? Math.pow(Result.base, -Result.precision) : 0);
         if (Double.isNaN(im) && Double.isInfinite(re))
         {
-            s = (re > 0 ? "∞" : "-∞");
+            answer = (re > 0 ? "∞" : "-∞");
         }
         else if (Math.abs(re) > threshold || Double.isNaN(re))
         { // re to be shown.
-            s += doubleToString(re);
+            answer += doubleToString(re);
 
             if (isDoubleFinite(im))
             {
                 if (Math.abs(im) > threshold)
                 {
-                    s += (im > 0 ? "+" : "-");
+                    answer += (im > 0 ? "+" : "-");
                     if (Math.abs(Math.abs(im) - 1) > threshold)
                     {
-                        s += doubleToString(Math.abs(im));
+                        answer += doubleToString(Math.abs(im));
                     }
-                    s += "i";
+                    answer += "i";
                 }
             }
             else
             { // inf or nan
-                s += (im < 0 ? "" : "+"); // +inf/nan -> +
-                s += doubleToString(im) + "*i";
+                answer += (im < 0 ? "" : "+"); // +inf/nan -> +
+                answer += doubleToString(im) + "*i";
             }
         }
         else
@@ -235,28 +265,56 @@ public class Complex
             {
                 if (Math.abs(im) > threshold)
                 {
-                    s += (im > 0 ? "" : "-");
+                    answer += (im > 0 ? "" : "-");
                     if (Math.abs(Math.abs(im) - 1) > threshold)
                     {
-                        s += doubleToString(Math.abs(im));
+                        answer += doubleToString(Math.abs(im));
                     }
-                    s += "i";
+                    answer += "i";
                 }
                 else
                 { // Nothing
-                    s += "0";
+                    answer += "0";
                 }
             }
             else
             { // inf nan
-                s += doubleToString(im) + "*i";
+                answer += doubleToString(im) + "*i";
             }
         }
-
-        return s;
+        return answer;
     }
 
-    //======================= Complex Functions ============================
+    //======================= Functions ============================
+
+    public static Complex logab(Complex c, Complex c2)
+    {
+        return div(ln(c2), ln(c));
+    }
+
+    public static Complex max(Complex c, Complex c2)
+    {
+        if (c.im != 0 || c2.im != 0)
+        {
+            return new Complex().error(3);
+        }
+        return new Complex(Math.max(c.re, c2.re));
+    }
+
+    public static Complex min(Complex c, Complex c2)
+    {
+        if (c.im != 0 || c2.im != 0)
+        {
+            return new Complex().error(3);
+        }
+        return new Complex(Math.min(c.re, c2.re));
+    }
+
+    public static Complex ln(Complex c)
+    {
+        return new Complex(Math.log(c.norm().re), c.arg().re);
+    }
+
     public static Complex exp(Complex c)
     {
         if (c.re == Double.NEGATIVE_INFINITY)
@@ -267,9 +325,9 @@ public class Complex
         return new Complex(norm * Math.cos(c.im), norm * Math.sin(c.im));
     }
 
-    public static Complex ln(Complex c)
+    public static Complex log(Complex c)
     {
-        return new Complex(Math.log(c.norm().re), c.arg().re);
+        return div(ln(c), ln(new Complex(10)));
     }
 
     public static Complex sqrt(Complex c)
@@ -288,6 +346,11 @@ public class Complex
         }
         norm = Math.sqrt(norm);
         return new Complex(norm * cosd2, norm * sind2);
+    }
+
+    public static Complex cbrt(Complex c)
+    {
+        return pow(c, div(new Complex(1), new Complex(3)));
     }
 
     public static Complex sin(Complex c)
@@ -348,9 +411,6 @@ public class Complex
         {
             return new Complex(Math.PI / 2);
         }
-        /*Complex v1=Complex.ln(Complex.sub(new Complex(1),Complex.mul(c,I)));
-		Complex v2=Complex.ln(Complex.add(new Complex(1),Complex.mul(c,I)));
-		return Complex.mul(new Complex(0,0.5),Complex.sub(v1,v2));*/ // Old implementation
 
         Complex c1 = new Complex(1 - c.im, c.re);
         Complex c2 = new Complex(1 + c.im, -c.re);
@@ -470,6 +530,4 @@ public class Complex
         }
         return result;
     }
-
-
 }

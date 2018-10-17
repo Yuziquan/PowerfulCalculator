@@ -62,6 +62,7 @@ public class RadixConversionActivity extends BaseActivity
         if(actionBar != null)
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("进制转换");
         }
 
         ButterKnife.bind(this);
