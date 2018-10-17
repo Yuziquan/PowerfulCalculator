@@ -11,11 +11,9 @@
 #### 1. 计算器主界面
 
 
-
-
-
 <div align=center>
 <img src="https://github.com/Yuziquan/PowerfulCalculator/blob/master/Screenshots/1.png" width=250 height=440 />
+</div>
 
 <br/>
 ***
@@ -24,6 +22,7 @@
 
 <div align=center>
 <img src="https://github.com/Yuziquan/PowerfulCalculator/blob/master/Screenshots/2.png" width=250 height=440 />
+</div>
 
 <br/>
 
@@ -31,6 +30,7 @@
 
 <div align=center>
 <img src="https://github.com/Yuziquan/PowerfulCalculator/blob/master/Screenshots/3.png" width=250 height=440 />
+</div>
 
 <br/>
 
@@ -38,6 +38,7 @@
 
 <div align=center>
 <img src="https://github.com/Yuziquan/PowerfulCalculator/blob/master/Screenshots/4.png" width=250 height=440 />
+</div>
 
 <br/>
 
@@ -45,12 +46,14 @@
 
 <div align=center>
 <img src="https://github.com/Yuziquan/PowerfulCalculator/blob/master/Screenshots/5.png" width=250 height=440 />
+</div>
 
 <br/>
 ##### 2.4 上帝模式（自由输入模式）
 
 <div align=center>
 <img src="https://github.com/Yuziquan/PowerfulCalculator/blob/master/Screenshots/6.png" width=250 height=440 />
+</div>
 
 <br/>
 ***
@@ -60,12 +63,14 @@
 
 <div align=center>
 <img src="https://github.com/Yuziquan/PowerfulCalculator/blob/master/Screenshots/7.png" width=250 height=440 />
+</div>
 
 <br/>
 
 ##### 3.2 函数栏
 <div align=center>
 <img src="https://github.com/Yuziquan/PowerfulCalculator/blob/master/Screenshots/8.png" width=250 height=440 />
+</div>
 
 
 <br/>
