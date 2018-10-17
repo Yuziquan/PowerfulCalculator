@@ -10,7 +10,6 @@ import android.text.TextUtils;
 
 import java.lang.Math;
 
-
 public class Complex
 {
     public static Complex E = new Complex(Math.E);

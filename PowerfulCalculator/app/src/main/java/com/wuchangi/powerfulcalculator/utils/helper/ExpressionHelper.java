@@ -46,7 +46,7 @@ public class ExpressionHelper
                 case 2:
                     return new String[]{"已强制停止运算", "false"};
 
-                // 运算表达式非法，因为向不支持复数的函数中传入复数入参
+                // 运算表达式非法，因为向不支持复数的函数中传入复数实参
                 case 3:
                     return new String[]{"函数不支持复数", "true"};
 

@@ -9,7 +9,6 @@
               android:layout_height="match_parent"
               android:layout_centerInParent="true"
               android:gravity="center"
-              android:text="test"
               android:fontFamily="sans-serif-light"
               android:textColor="@color/normal_text_color"
               android:textSize="35sp"/>

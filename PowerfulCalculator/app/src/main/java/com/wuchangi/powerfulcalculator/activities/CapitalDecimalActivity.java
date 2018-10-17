@@ -50,6 +50,7 @@ public class CapitalDecimalActivity extends BaseActivity
         initView();
     }
 
+
     /**
      * 界面初始化
      */
@@ -65,7 +66,6 @@ public class CapitalDecimalActivity extends BaseActivity
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after)
             {
-
             }
 
             @Override

@@ -5,6 +5,7 @@ package com.wuchangi.powerfulcalculator.utils.complex;
  * Written by Iraka on 20170312
  * Github: https://github.com/Iraka-C/Calci-kernel
  */
+
 class Function
 {
     static final int EXP = 10;

@@ -18,10 +18,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.*;
 import android.text.style.ForegroundColorSpan;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import android.view.*;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import butterknife.BindView;
@@ -133,9 +130,8 @@ public class MainActivity extends AppCompatActivity
      */
     private List<View> mPageViewList = new ArrayList<>();
 
-    private SharedPreferences  mSharedPreferences;
+    private SharedPreferences mSharedPreferences;
 
-    private MenuItem mGodMenuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -186,7 +182,7 @@ public class MainActivity extends AppCompatActivity
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
         {
-            actionBar.setTitle("科学计算");
+            actionBar.setTitle("强力计算器");
         }
 
     }
@@ -197,6 +193,8 @@ public class MainActivity extends AppCompatActivity
      */
     private void initEditText()
     {
+        hideSoftKeyboardWithCursor();
+
         AutofitHelper.create(mExpressionInputEditText).setMinTextSize(20).setMaxLines(1);
 
         mExpressionInputEditText.addTextChangedListener(new TextWatcher()
@@ -218,7 +216,6 @@ public class MainActivity extends AppCompatActivity
 
                 if (!sIsCalculating)
                 {
-                    mExpressionResultTextView.setText("运算中...");
                     calcExpresssion(false);
                 }
             }
@@ -346,7 +343,7 @@ public class MainActivity extends AppCompatActivity
 
         functionsPageView.setOnItemClickListener((parent, view, position, id) ->
         {
-            modifyExpressionInputEditView(Constants.FUNCTION_SYMBOLS[position].equals("gamma") ? "Γ": Constants.FUNCTION_SYMBOLS[position]+"()");
+            modifyExpressionInputEditView(Constants.FUNCTION_SYMBOLS[position].equals("gamma") ? "Γ" : Constants.FUNCTION_SYMBOLS[position] + "()");
         });
 
 
@@ -377,7 +374,6 @@ public class MainActivity extends AppCompatActivity
         mTabBar.setupWithViewPager(mViewPager);
         mTabBar.getTabAt(0).setText("常数");
         mTabBar.getTabAt(1).setText("函数");
-
 
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
@@ -601,19 +597,17 @@ public class MainActivity extends AppCompatActivity
             case 6:
                 finish();
                 break;
+
+            default:
         }
     }
 
 
-
     /**
-     * 使得EditText有光标且不弹出软键盘
+     * 使得EditText有光标且点击后不弹出软键盘
      */
     private void hideSoftKeyboardWithCursor()
     {
-        mExpressionInputEditText.requestFocus();
-        mExpressionInputEditText.requestFocusFromTouch();
-
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
         int currentVersion = Build.VERSION.SDK_INT;
@@ -649,47 +643,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    /**
-     * 使得EditText有光标且弹出软键盘
-     */
-    private void displaySoftKeyboardWithCursor()
-    {
-        mExpressionInputEditText.requestFocus();
-        mExpressionInputEditText.requestFocusFromTouch();
-
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-
-        int currentVersion = Build.VERSION.SDK_INT;
-
-        // 4.0以上和4.2以上方法名有所改变
-        String methodName = null;
-        if (currentVersion >= 16)
-        {
-            // 4.2以上
-            methodName = "setShowSoftInputOnFocus";
-        }
-        else if (currentVersion >= 14)
-        {
-            // 4.0以上
-            methodName = "setSoftInputShownOnFocus";
-        }
-
-
-        Class<EditText> cls = EditText.class;
-        Method setShowSoftInputOnFocus;
-        try
-        {
-            setShowSoftInputOnFocus = cls.getMethod(methodName, boolean.class);
-            setShowSoftInputOnFocus.setAccessible(true);
-            setShowSoftInputOnFocus.invoke(mExpressionInputEditText, true);
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
-        inputMethodManager.showSoftInput(mExpressionInputEditText, InputMethodManager.SHOW_FORCED);
-    }
 
 
     /**
@@ -699,6 +652,8 @@ public class MainActivity extends AppCompatActivity
      */
     private void calcExpresssion(boolean isSave)
     {
+        mExpressionResultTextView.setText("运算中...");
+
         sIsCalculating = true;
 
         String expression = mExpressionInputEditText.getText().toString();

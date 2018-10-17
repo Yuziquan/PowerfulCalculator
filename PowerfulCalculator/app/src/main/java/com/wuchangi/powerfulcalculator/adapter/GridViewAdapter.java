@@ -28,8 +28,6 @@ public class GridViewAdapter extends BaseAdapter
      */
     private List<String> mSubtitleList = null;
 
-    private GridView mGridView;
-
     private LayoutInflater mLayoutInflater;
 
     private int mLayoutId;
@@ -38,7 +36,6 @@ public class GridViewAdapter extends BaseAdapter
     public GridViewAdapter(Context context, List<String> titleList, List<String> subtitleList, int layoutId)
     {
         mLayoutInflater = LayoutInflater.from(context);
-        //mGridView = gridView;
         mTitleList = titleList;
         mSubtitleList = subtitleList;
         mLayoutId = layoutId;

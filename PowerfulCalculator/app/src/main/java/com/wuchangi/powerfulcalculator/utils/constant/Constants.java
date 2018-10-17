@@ -31,7 +31,7 @@ public class Constants
     /**
      * BMB菜单项的标题
      */
-    public static final String[] BMB_MENU_ITEM_TITLES = {"大数计算", "进制转换", "数字大写转换(财务管理)", "上帝模式"
+    public static final String[] BMB_MENU_ITEM_TITLES = {"大数运算", "进制转换", "数字大写转换(财务管理)", "上帝模式"
     , "帮助", "关于", "退出本应用"};
 
 
@@ -51,13 +51,13 @@ public class Constants
 
 
     /**
-     * 常量符号
+     * 常数符号
      */
     public static final String[] CONSTANT_SYMBOLS = {"ans", "reg", "π", "e", "F", "h", "ћ", "γ", "φ", "c", "N", "R", "K"
             , "k", "G", "Φ", "true", "false", "me", "mn", "mp"};
 
     /**
-     * 对于常量的相关说明
+     * 对于常数符号的相关说明
      */
     public static final String[] CONSTANT_DESCRIPTIONS = {"上次运算结果", "寄存器", "圆周率", "自然底数"
             , "法拉第常数(C/mol)", "普朗克常数(J·s)", "约化普朗克常数(J·s)", "欧拉常数", "黄金分割率", "光速(m/s)"
@@ -89,14 +89,14 @@ public class Constants
     public static final Pattern OPERATORS_PATTERN = Pattern.compile("[+\\-×÷%^°!√∞i(),x]");
 
     /**
-     * 常量名关键字的正则表达式1
+     * 常数名关键字的正则表达式1
      */
     public static final Pattern CONSTANTS_KEYWORDS1_PATTERN = Pattern.compile("\\b(" + "ans|reg|true|false|me|mn|mp" + ")\\b");
 
     /**
-     * 常量名关键字的正则表达式2
+     * 常数名关键字的正则表达式2
      */
-    public static final Pattern CONSTANTS_KEYWORDS2_PATTERN = Pattern.compile("[πeFhћγφcNRkGΦ]");
+    public static final Pattern CONSTANTS_KEYWORDS2_PATTERN = Pattern.compile("[πeFhћγφcNRKkGΦ]");
 
 
     /**
@@ -149,12 +149,6 @@ public class Constants
             put("mp", "1.67492716E-27"); // 中子质量（kg）
         }
     };
-
-
-
-
-
-
 
 
     /**

@@ -296,8 +296,7 @@
                 app:bmb_normalColor="@color/bmb_color"
                 app:bmb_buttonEnum="textOutsideCircle"
                 app:bmb_piecePlaceEnum="piecePlace_dot_7_3"
-                app:bmb_buttonPlaceEnum="buttonPlace_sc_7_3"
-        />
+                app:bmb_buttonPlaceEnum="buttonPlace_sc_7_3"/>
 
 
     </LinearLayout>

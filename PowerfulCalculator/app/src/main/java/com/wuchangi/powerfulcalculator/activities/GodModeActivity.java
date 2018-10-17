@@ -22,6 +22,9 @@ import me.grantland.widget.AutofitHelper;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * 上帝模式界面
+ */
 public class GodModeActivity extends BaseActivity
 {
 
@@ -61,7 +64,6 @@ public class GodModeActivity extends BaseActivity
     private void initView()
     {
         initEditText();
-
     }
 
 
@@ -91,7 +93,7 @@ public class GodModeActivity extends BaseActivity
 
                 if (!sIsCalculating)
                 {
-                    mGodModeExpressionResultTextView.setText("运算中...");
+
                     calcExpresssion(false);
                 }
             }
@@ -147,6 +149,8 @@ public class GodModeActivity extends BaseActivity
      */
     private void calcExpresssion(boolean isSave)
     {
+        mGodModeExpressionResultTextView.setText("运算中...");
+
         sIsCalculating = true;
 
         String expression = mGodModeExpressionInputEditText.getText().toString();

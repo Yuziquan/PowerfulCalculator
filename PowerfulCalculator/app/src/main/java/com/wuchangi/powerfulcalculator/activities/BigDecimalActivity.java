@@ -51,22 +51,10 @@ public class BigDecimalActivity extends BaseActivity
         if(actionBar != null)
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("大数计算");
+            actionBar.setTitle("大数运算");
         }
 
         ButterKnife.bind(this);
-
-        initView();
-    }
-
-    /**
-     * 界面初始化
-     */
-    private void initView()
-    {
-        AutofitHelper.create(mBigNum1EditText).setMaxLines(8);
-
-        AutofitHelper.create(mBigNum2EditText).setMaxLines(8);
     }
 
 
