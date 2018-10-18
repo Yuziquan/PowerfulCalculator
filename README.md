@@ -80,4 +80,18 @@
 
 ***
 
-### 三、相关说明
+### 三、参考资料
+
+#### 1. 运算内核
+基于[Iraka](https://github.com/Iraka-C)大神的[Calci-kernel](https://github.com/Iraka-C/Calci-kernel), 并修改部分代码，加入一些自己的自定义函数，辅助该App的开发。
+
+<br/>
+
+#### 2. 计算器App的基本实现逻辑
+##### 2.1 基本逻辑和界面参考
+基于[王家晔](https://github.com/HK-SHAO)~~大神~~学生开发的[DarkCalculator](https://github.com/HK-SHAO/DarkCalculator)。
+<br/>
+
+
+
+
