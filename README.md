@@ -10,10 +10,11 @@
 ### 二、运行效果
 #### 1. 计算器主界面
 
-
 <div align=center>
 <img src="https://github.com/Yuziquan/PowerfulCalculator/blob/master/Screenshots/1.png" width=250 height=440 />
 </div>
+
+
 
 <br/>
 
@@ -93,5 +94,5 @@
 <br/>
 
 
-
-
+##### 2.2 改进和优化方面
+* ​
