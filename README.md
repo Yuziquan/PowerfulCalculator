@@ -1,5 +1,5 @@
 ## PowerfulCalculator（强力计算器）
-[![PowerfulCalculator](https://img.shields.io/badge/CalculateArithmeticExpressionForFloatingpoint-v1.0.0-brightgreen.svg)](
+[![PowerfulCalculator](https://img.shields.io/badge/PowerfulCalculator-v1.0.0-brightgreen.svg)](
 https://github.com/Yuziquan/PowerfulCalculator)
 [![license](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/Yuziquan/PowerfulCalculator/blob/master/LICENSE)
 
