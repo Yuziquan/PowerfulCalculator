@@ -5,7 +5,7 @@ https://github.com/Yuziquan/PowerfulCalculator)
 
 <br/>
 
-<img src="" width=150 height=150/>
+<img src="https://github.com/Yuziquan/PowerfulCalculator/blob/master/Screenshots/app_icon.png" width=150 height=150/>
 
 ### 一、基本功能
 
