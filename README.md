@@ -3,6 +3,10 @@
 https://github.com/Yuziquan/PowerfulCalculator)
 [![license](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/Yuziquan/PowerfulCalculator/blob/master/LICENSE)
 
+<br/>
+
+<img src="" width=150 height=150/>
+
 ### 一、基本功能
 
 * 支持常见的科学运算；

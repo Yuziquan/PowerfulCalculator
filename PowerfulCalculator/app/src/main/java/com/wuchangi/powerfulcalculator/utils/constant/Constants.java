@@ -19,7 +19,7 @@ public class Constants
     /**
      * 保存的上次运算的结果值
      */
-    public static String lastAnswerValue = null;
+    public static String slastAnswerValue = null;
 
     /**
      * BMB菜单项的图标id

@@ -167,7 +167,7 @@ public class GodModeActivity extends BaseActivity
                     if (isSave)
                     {
                         // 保存运算结果
-                        Constants.lastAnswerValue = result[0];
+                        Constants.slastAnswerValue = result[0];
                     }
 
                     // 数值太大，跳转到大数运算结果界面查看结果

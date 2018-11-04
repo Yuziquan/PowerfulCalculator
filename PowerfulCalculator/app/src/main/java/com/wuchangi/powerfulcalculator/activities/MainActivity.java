@@ -3,11 +3,9 @@ package com.wuchangi.powerfulcalculator.activities;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -130,16 +128,12 @@ public class MainActivity extends AppCompatActivity
      */
     private List<View> mPageViewList = new ArrayList<>();
 
-    private SharedPreferences mSharedPreferences;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         ButterKnife.bind(this);
 
@@ -670,7 +664,7 @@ public class MainActivity extends AppCompatActivity
                     if (isSave)
                     {
                         // 保存运算结果
-                        Constants.lastAnswerValue = result[0];
+                        Constants.slastAnswerValue = result[0];
                     }
 
                     // 数值太大，跳转到大数运算结果界面查看结果
